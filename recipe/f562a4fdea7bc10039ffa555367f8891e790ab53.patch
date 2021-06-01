@@ -1,0 +1,23 @@
+From f562a4fdea7bc10039ffa555367f8891e790ab53 Mon Sep 17 00:00:00 2001
+From: David Lord <davidism@gmail.com>
+Date: Mon, 17 May 2021 06:41:42 -0700
+Subject: [PATCH] fix deprecated `Markup` subclass
+
+---
+
+ src/jinja2/utils.py | 2 +-
+
+
+diff --git a/src/jinja2/utils.py b/src/jinja2/utils.py
+index 85311747..2a2641c0 100644
+--- a/src/jinja2/utils.py
++++ b/src/jinja2/utils.py
+@@ -834,7 +834,7 @@ def __repr__(self) -> str:
+ 
+ 
+ class Markup(markupsafe.Markup):
+-    def __new__(cls, base, encoding=None, errors="strict"):  # type: ignore
++    def __new__(cls, base="", encoding=None, errors="strict"):  # type: ignore
+         warnings.warn(
+             "'jinja2.Markup' is deprecated and will be removed in Jinja"
+             " 3.1. Import 'markupsafe.Markup' instead.",
