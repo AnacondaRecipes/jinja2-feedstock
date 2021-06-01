@@ -10,10 +10,14 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # 6/1/2021: To fix "jinja2.Markup() fails without deprecation warning"
+    # see https://github.com/pallets/jinja/issues/1438
+    - f562a4fdea7bc10039ffa555367f8891e790ab53.patch
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -21,6 +25,7 @@ requirements:
     - pip
     - python >=3.6
     - setuptools
+    - wheel
 
   run:
     - python >=3.6
@@ -38,6 +43,7 @@ test:
 about:
   home: http://jinja.pocoo.org
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE.rst
   summary: An easy to use stand-alone template engine written in pure python.
   description: |
