@@ -1,6 +1,6 @@
 {% set name = "Jinja2" %}
-{% set version = "3.0.0" %}
-{% set sha256 = "ea8d7dd814ce9df6de6a761ec7f1cac98afe305b8cdc4aaae4e114b8d8ce24c5" %}
+{% set version = "3.0.2" %}
+{% set sha256 = "827a0e32839ab1600d4eb1c4c33ec5a8edfbc5cb42dafa13b81f182f97784b45" %}
 
 package:
   name: {{ name|lower }}
@@ -19,25 +19,26 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python
     - setuptools
-
+    - wheel
   run:
     - python >=3.6
-    - setuptools
     - markupsafe >=2.0
 
 test:
   imports:
     - jinja2
-  commands:
-    - pip check
   requires:
     - pip
+    - python <3.10
+  commands:
+    - pip check
 
 about:
   home: http://jinja.pocoo.org
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE.rst
   summary: An easy to use stand-alone template engine written in pure python.
   description: |
