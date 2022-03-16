@@ -1,6 +1,6 @@
 {% set name = "Jinja2" %}
-{% set version = "3.0.2" %}
-{% set sha256 = "827a0e32839ab1600d4eb1c4c33ec5a8edfbc5cb42dafa13b81f182f97784b45" %}
+{% set version = "3.0.3" %}
+{% set sha256 = "611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7" %}
 
 package:
   name: {{ name|lower }}
@@ -31,12 +31,11 @@ test:
     - jinja2
   requires:
     - pip
-    - python <3.10
   commands:
     - pip check
 
 about:
-  home: http://jinja.pocoo.org
+  home: https://jinja.pocoo.org
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.rst
@@ -45,7 +44,7 @@ about:
     Jinja2 is a full featured template engine for Python. It has full unicode
     support, an optional integrated sandboxed execution environment, widely
     used and BSD licensed.
-  doc_url: http://jinja.pocoo.org/docs/dev/
+  doc_url: https://jinja.pocoo.org/docs/dev/
   dev_url: https://github.com/pallets/jinja
   doc_source_url: https://github.com/pallets/jinja/blob/master/docs/index.rst
 
