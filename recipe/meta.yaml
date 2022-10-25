@@ -39,6 +39,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.rst
+  license_url: https://github.com/pallets/jinja/blob/{{ version }}/LICENSE.rst
   summary: A very fast and expressive template engine.
   description: |
     Jinja is a fast, expressive, extensible templating engine. Special
@@ -66,6 +67,7 @@ about:
     restricting functionality too much.
   doc_url: https://jinja.palletsprojects.com/
   dev_url: https://github.com/pallets/jinja/
+  doc_source_url: https://github.com/pallets/jinja/tree/{{ version }}/docs
 
 extra:
   recipe-maintainers:
