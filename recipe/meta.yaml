@@ -15,12 +15,16 @@ build:
   noarch: python
   number: 0
 
+  # noarch only needs to build on linux64
+  skip: true # [not linux64]
+
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   host:
     - pip
     - python >=3.7
+    - wheel
   run:
     - markupsafe >=2.0
     - python >=3.7
