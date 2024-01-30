@@ -27,12 +27,16 @@ requirements:
     - python
 
 test:
+  source_files:
+    - tests
   requires:
     - pip
+    - pytest
   imports:
     - jinja2
   commands:
     - pip check
+    - pytest tests -v
 
 about:
   home: https://palletsprojects.com/p/jinja/
