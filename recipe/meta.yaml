@@ -42,7 +42,7 @@ about:
   home: https://palletsprojects.com/p/jinja/
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE.rst
+  license_file: LICENSE.txt
   summary: A very fast and expressive template engine.
   description: |
     Jinja is a fast, expressive, extensible templating engine. Special
