@@ -18,12 +18,13 @@ build:
 requirements:
   host:
     - pip
-    - setuptools
-    - wheel
     - python
+    - flit_core <4
   run:
     - markupsafe >=2.0
     - python
+  run_constrained:
+    - babel >=2.7
 
 test:
   source_files:
