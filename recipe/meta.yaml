@@ -35,7 +35,7 @@ test:
     - jinja2
   commands:
     - pip check
-    - pytest -k "not test_core_tags.py" # [py=312 and s390x]
+    - pytest -k "not test_elif_deep" # [py=312 and s390x]
     - pytest tests -v
 
 about:
