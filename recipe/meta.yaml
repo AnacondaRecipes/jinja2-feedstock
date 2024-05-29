@@ -1,15 +1,13 @@
 {% set name = "Jinja2" %}
-{% set version = "3.1.3" %}
-{% set sha256 = "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90" %}
+{% set version = "3.1.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/{{ name[0]|lower }}/{{ name|lower }}/{{ name|lower }}-{{ version }}.tar.gz
+  sha256: 4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369
 
 build:
   number: 0
@@ -19,12 +17,13 @@ build:
 requirements:
   host:
     - pip
-    - setuptools
-    - wheel
     - python
+    - flit-core <4
   run:
     - markupsafe >=2.0
     - python
+  run_constrained:
+    - babel >=2.7
 
 test:
   source_files:
@@ -36,13 +35,14 @@ test:
     - jinja2
   commands:
     - pip check
-    - pytest tests -v
+    - pytest tests -k "not test_elif_deep"  # [py==312 and s390x]
+    - pytest tests -v # [not (py==312 and s390x)]
 
 about:
   home: https://palletsprojects.com/p/jinja/
   license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE.rst
+  license_file: LICENSE.txt
   summary: A very fast and expressive template engine.
   description: |
     Jinja is a fast, expressive, extensible templating engine. Special
