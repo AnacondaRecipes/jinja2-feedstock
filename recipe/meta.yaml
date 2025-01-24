@@ -1,5 +1,5 @@
 {% set name = "Jinja2" %}
-{% set version = "3.1.4" %}
+{% set version = "3.1.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,19 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0]|lower }}/{{ name|lower }}/{{ name|lower }}-{{ version }}.tar.gz
-  sha256: 4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369
-  patches:
-    - patches/0001-fix-test_package_zip_list-on-3.13.patch
+  sha256: 8fefff8dc3034e27bb80d67c671eb8a9bc424c0ef4c0826edbff304cceff43bb
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   skip: True  # [py<37]
 
 requirements:
-  build:
-    - patch # [unix]
-    - m2-patch # [win]
   host:
     - pip
     - python
@@ -36,6 +31,7 @@ test:
   requires:
     - pip
     - pytest
+    - trio
   imports:
     - jinja2
   commands:
@@ -55,7 +51,6 @@ about:
     syntax. Then the template is passed data to render the final document.
 
     It includes:
-
     -   Template inheritance and inclusion.
     -   Define and import macros within templates.
     -   HTML templates can use autoescaping to prevent XSS from untrusted
