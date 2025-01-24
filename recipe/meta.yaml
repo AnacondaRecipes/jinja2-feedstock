@@ -22,7 +22,6 @@ requirements:
   run:
     - markupsafe >=2.0
     - python
-    - trio
   run_constrained:
     - babel >=2.7
 
@@ -32,6 +31,7 @@ test:
   requires:
     - pip
     - pytest
+    - trio
   imports:
     - jinja2
   commands:
@@ -64,7 +64,7 @@ about:
     -   Exceptions point to the correct line in templates to make debugging
         easier.
     -   Extensible filters, tests, functions, and even syntax.
-    
+
     Jinja's philosophy is that while application logic belongs in Python if
     possible, it shouldn't make the template designer's job difficult by
     restricting functionality too much.
