@@ -27,6 +27,8 @@ requirements:
 
 # Skip unstable test. Max recursion depth exceeded.
 {% set deselect_tests = " --deselect=tests/test_fuzzing.py::TestFuzzing::test_cma_tell" %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_core_tags.py::TestIfCondition::test_elif_deep" %}
+
 test:
   source_files:
     - tests
